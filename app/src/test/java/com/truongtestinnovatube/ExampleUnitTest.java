@@ -10,8 +10,30 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
+
+
+
     @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+    public void isNestedString(){
+        assertTrue(NestedValidator.isNested("(([]{})(())(<>))"));
     }
+
+    @Test
+    public void isNestedString1(){
+        assertTrue(NestedValidator.isNested("<())"));
+    }
+
+    @Test
+    public void isNestedString2(){
+        assertTrue(NestedValidator.isNested("[0..1,000,000]"));
+    }
+
+    @Test
+    public void isNestedString3(){
+        assertTrue(NestedValidator.isNested("([{<\" and/or \")]}>"));
+    }
+
+
+
+
 }
